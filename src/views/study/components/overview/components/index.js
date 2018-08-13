@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import Accordion from "../../accordion";
-import Permissions from "./permissions";
+import Permissions from "./permissions/index";
 import Attachments from "./attachments";
 import Comments from "./comments";
-import BasicInformation from "./basicInformation";
+import BasicInformation from "./information";
 const data = {
   study : {
     "object_ref_id": "6",

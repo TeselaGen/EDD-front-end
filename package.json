@@ -39,7 +39,11 @@
     "validator": "^9.4.1"
   },
   "devDependencies": {
-    "nwb": "0.21.x"
+    "nwb": "0.21.x",
+    "eslint": "^4.19.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-config-teselagen": "^4.0.12",
+    "eslint-plugin-react": "^7.7.0"
   },
   "author": "",
   "license": "MIT",

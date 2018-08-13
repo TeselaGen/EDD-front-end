@@ -34,7 +34,6 @@ const attachments = props => {
         schema={schema}
         withPaging
         withCheckboxes
-        formName="prueba"
         cellRenderer={{
           file: (value, record) => {
             return (
@@ -52,6 +51,7 @@ const attachments = props => {
         <Button
           icon="add"
           text="Add Attachment"
+          formName="attachmentList"
           intent={Intent.PRIMARY}
           className={Classes.MINIMAL}
           onClick={() => {
