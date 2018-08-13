@@ -4,16 +4,39 @@
   "description": "Describe edd-version here",
   "private": true,
   "scripts": {
-    "build": "nwb build-preact-app",
-    "clean": "nwb clean-app",
-    "start": "nwb serve-preact-app",
-    "test": "nwb test-preact",
-    "test:coverage": "nwb test-preact --coverage",
-    "test:watch": "nwb test-preact --server"
+    "start": "nwb serve-react-app",
+    "build": "nwb build-react-app"
   },
   "dependencies": {
-    "preact": "^8.3.0",
-    "preact-compat": "^3.18.2"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2",
+    "@blueprintjs/core": "^2.0.0-rc.2",
+    "@blueprintjs/datetime": "^2.0.0-rc.2",
+    "antd": "^2.13.9",
+    "classnames": "^2.2.5",
+    "lodash": "^4.17.5",
+    "react-redux": "^5.0.7",
+    "recharts": "^1.0.0-beta.10",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.3.0",
+    "redux-form": "^7.3.0",
+    "redux-mock-store": "^1.5.1",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.0",
+    "teselagen-platform-ux": "https://fe3a482cf76db066a2f56daf9cddca963c741aff:x-oauth-basic@github.com/TeselaGen/teselagen-platform-ux.git#0.10.0",
+    "teselagen-react-components": "^22.0.55",
+    "apollo-client": "^2.2.7",
+    "apollo-cache-invalidation": "^0.0.3",
+    "graphql": "^0.13.1",
+    "graphql-tag": "^2.8.0",
+    "react-apollo": "^2.0.4",
+    "react-select": "^1.2.1",
+    "react-table": "^6.8.0",
+    "react-helmet": "^5.2.0",
+    "react-transition-group": "^2.2.1",
+    "tg-client-query-builder": "2.12.1",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
     "nwb": "0.21.x"

@@ -1,0 +1,56 @@
+.main-tab {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.study-title {
+  position: absolute;
+  left: 0;
+  top: 25px;
+  border-bottom: 3px solid;
+  font-size: 40px;
+  color: #106ba3;
+}
+
+
+.tool-library-container {
+  width: 100%;
+  padding: 40px;
+}
+
+.tool-library-container .header {
+  margin-bottom: 20px;
+}
+
+.tool-library-info {
+  flex: 3;
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  white-space: pre-line;
+  line-height: 20px;
+  font-weight: 200;
+}
+
+.tool-library-info h5 {
+  margin-bottom: 20px;
+}
+
+.tool-info-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.tool-library .pt-tab-panel {
+  flex: 1;
+  max-width: 1100px;
+}

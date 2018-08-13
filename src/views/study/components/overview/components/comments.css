@@ -1,0 +1,12 @@
+.clearfix {
+  border: 1px solid #106ba347;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  width: 80%;
+}
+
+.message-data-time {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 10px;
+}

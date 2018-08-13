@@ -1,42 +1,570 @@
-.App {
-  height: 100%;
-  min-height: 400px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
+/*tnr: commenting this out because we can't import anything from external links when serving behind dows firewall:
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto|Roboto+Slab');*/
+
+@import url(~teselagen-react-components/lib/style.css);
+@import url(~teselagen-platform-ux/lib/platform.css);
+@import url(~antd/dist/antd.css);
+
+.tg-card {
+  background: #fcfcfc;
 }
 
-.App-flex {
-  flex: 1;
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: #182026 !important;
+  overflow: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  line-height: normal;
+}
+
+#root {
+  height: 100vh;
+}
+
+#app-body {
+  padding-top: 50px;
+  padding-left: 40px;
   display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+#app-body.logged-out {
+  padding-top: 0;
+  padding-left: 0;
+}
+
+#platform-header {
+  background-color: #0a5d85;
+}
+
+.pt-dialog .pt-dialog-header {
+  background-color: #0a5d85;
+}
+
+.app-content {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  padding: 20px;
+}
+
+/*general flex utils*/
+.flex {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+}
+.flex-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-baseline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+/*antd overrides*/
+.ant-table-small .ant-table-header > table,
+.ant-table-small .ant-table-body > table {
+  padding: 0 0px;
+}
+/*blueprint overrides*/
+/* fixes issue with pt icons not showing up */
+[class^="pt-icon-"]:before,
+[class*=" pt-icon-"]:before {
+  font-family: Icons16 !important;
+}
+
+.pt-dialog-header {
+  background: #4a90e2;
+}
+
+.pt-dialog-header-title {
+  color: white;
+}
+
+.pt-dialog-close-button .pt-icon {
+  color: #d1d1d1;
+}
+
+.pt-dialog-close-button:hover .pt-icon {
+  color: #5c7080;
+}
+
+.full-width-tooltip.pt-popover-wrapper,
+.full-width-tooltip .pt-popover-target {
+  width: 100%;
+}
+
+/* fixed height buttons except search (messes up datatable search button) */
+/* .pt-button:not(.pt-icon-search):not(.pt-icon-chevron-up):not(.pt-icon-chevron-down):not(.pt-icon-filter):not(.pt-icon-caret-down) {
+  height: 30px;
+} */
+
+.pt-button[class*="pt-intent-"] {
+  box-shadow: none !important;
+}
+
+.pt-button {
+  font-weight: 200;
+  border-radius: 2px;
+}
+
+.pt-form-group {
+  align-items: normal !important;
+}
+
+.pt-icon-drag-handle-vertical {
+  cursor: row-resize;
+}
+
+.pt-popover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.18) !important;
+}
+
+.pt-tab-panel h3 {
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+}
+
+.bp-table-body {
+  overflow: auto;
+}
+
+/*to render modal without backdrop*/
+.dialog-no-overlay {
+  display: none;
+}
+
+/*custom menu item hover color*/
+.pt-menu-item:hover {
+  background-color: rgba(0, 108, 171, 0.2);
+}
+
+.ant-table-placeholder span {
+  display: none;
+}
+
+.ant-table-row {
+  cursor: pointer;
+}
+
+.icon-button {
+  align-self: center;
+}
+
+.icon-button:hover {
+  opacity: 0.7;
+}
+
+/* Borders */
+.border-bottom-thick {
+  border-bottom: 2px solid black;
+}
+
+.border-top-thick {
+  border-top: 2px solid black;
+}
+
+.border-bottom {
+  border-bottom: 1px solid black;
+}
+
+.border-top {
+  border-top: 1px solid black;
+}
+
+.form-item > * {
+  margin-bottom: 8px;
+}
+
+.app-body-spinner {
+  width: 160px !important;
+  margin: 20px;
+}
+
+/* removes margin bottom from form groups when inside of table cells*/
+.rt-td .pt-form-group {
+  margin-bottom: 0px;
+}
+
+.input-with-unit-select {
+  display: flex;
+}
+
+.input-with-unit-select > .pt-form-group:first-child {
+  width: 80%;
+}
+
+.input-with-unit-select .unit-select {
+  margin-left: 15px;
+  width: calc(20% - 15px);
+  min-width: 60px;
+}
+
+.input-with-unit-select .unit-select .pt-select {
+  top: 23px;
+}
+
+.width100 {
+  width: 100%;
+}
+
+/* https://github.com/ixrock/flexbox */
+.tg-flex {
+  display: flex;
+  --flex-grid: 12;
+}
+.tg-flex.inline {
+  display: inline-flex;
+}
+.tg-flex.fullsize {
+  width: 100vw;
+  height: 100vh;
+}
+.tg-flex.column {
+  flex-direction: column;
+}
+.tg-flex.column.reverse {
+  flex-direction: column-reverse;
+}
+.tg-flex.reverse {
+  flex-direction: row-reverse;
+}
+.tg-flex.wrap {
+  flex-wrap: wrap;
+}
+.tg-flex.wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.tg-flex.auto > * {
+  flex: 1 1 0%;
+}
+.tg-flex.center > * {
+  margin: auto;
+}
+.tg-flex.justify-flex-start {
+  justify-content: flex-start;
+}
+.tg-flex.justify-flex-end {
+  justify-content: flex-end;
+}
+.tg-flex.justify-center {
   justify-content: center;
 }
-
-.App-heading {
-  background-color: #343a47;
-  color: #f2777a;
-  font-size: 6vh;
-  z-index: 2;
+.tg-flex.justify-space-around {
+  justify-content: space-around;
+}
+.tg-flex.justify-space-between {
+  justify-content: space-between;
+}
+.tg-flex.align-flex-start {
+  align-items: flex-start;
+}
+.tg-flex.align-flex-end {
+  align-items: flex-end;
+}
+.tg-flex.align-center {
+  align-items: center;
+}
+.tg-flex.align-stretch {
+  align-items: stretch;
+}
+.tg-flex.align-baseline {
+  align-items: baseline;
+}
+.tg-flex.content-flex-start {
+  align-content: flex-start;
+}
+.tg-flex.content-flex-end {
+  align-content: flex-end;
+}
+.tg-flex.content-center {
+  align-content: center;
+}
+.tg-flex.content-space-around {
+  align-content: space-around;
+}
+.tg-flex.content-space-between {
+  align-content: space-between;
+}
+.tg-flex.content-stretch {
+  align-content: stretch;
+}
+.tg-flex.gaps.column:not(.reverse) > :not(:last-child) {
+  margin-bottom: var(--flex-gap, 1em);
+}
+.tg-flex.gaps.column.reverse > :not(:last-child) {
+  margin-top: var(--flex-gap, 1em);
+}
+.tg-flex.gaps:not(.column):not(.reverse) > :not(:last-child) {
+  margin-right: var(--flex-gap, 1em);
+}
+.tg-flex.gaps:not(.column).reverse > :not(:last-child) {
+  margin-left: var(--flex-gap, 1em);
+}
+.tg-flex > .box.first {
+  order: -1;
+}
+.tg-flex > .box.last {
+  order: 1;
+}
+.tg-flex > .box.grow {
+  flex: 1 0;
+}
+.tg-flex > .box.grow-fixed {
+  flex: 1 0 0;
+}
+@media not all and (min-resolution: 0.001dpcm) {
+  .tg-flex > .box.grow-fixed {
+    flex-basis: 0%;
+  }
+}
+.tg-flex > .box.nogrow {
+  flex-grow: 0;
+  flex-basis: auto;
+}
+.tg-flex > .box.noshrink {
+  flex-shrink: 0;
+}
+.tg-flex > .box.center {
+  margin: auto;
+}
+.tg-flex > .box.left {
+  margin-left: 0;
+  margin-right: auto;
+}
+.tg-flex > .box.right {
+  margin-right: 0;
+  margin-left: auto;
+}
+.tg-flex > .box.top {
+  margin-top: 0;
+  margin-bottom: auto;
+}
+.tg-flex > .box.bottom {
+  margin-bottom: 0;
+  margin-top: auto;
+}
+.tg-flex > .box.self-flex-start {
+  align-self: flex-start;
+}
+.tg-flex > .box.self-flex-end {
+  align-self: flex-end;
+}
+.tg-flex > .box.self-center {
+  align-self: center;
+}
+.tg-flex > .box.self-stretch {
+  align-self: stretch;
+}
+.tg-flex > .box.self-baseline {
+  align-self: baseline;
+}
+.tg-flex.grid-1 > * {
+  --flex-grid: 1;
+}
+.tg-flex .col-1 {
+  --flex-col: 1;
+}
+.tg-flex.grid-2 > * {
+  --flex-grid: 2;
+}
+.tg-flex .col-2 {
+  --flex-col: 2;
+}
+.tg-flex.grid-3 > * {
+  --flex-grid: 3;
+}
+.tg-flex .col-3 {
+  --flex-col: 3;
+}
+.tg-flex.grid-4 > * {
+  --flex-grid: 4;
+}
+.tg-flex .col-4 {
+  --flex-col: 4;
+}
+.tg-flex.grid-5 > * {
+  --flex-grid: 5;
+}
+.tg-flex .col-5 {
+  --flex-col: 5;
+}
+.tg-flex.grid-6 > * {
+  --flex-grid: 6;
+}
+.tg-flex .col-6 {
+  --flex-col: 6;
+}
+.tg-flex.grid-7 > * {
+  --flex-grid: 7;
+}
+.tg-flex .col-7 {
+  --flex-col: 7;
+}
+.tg-flex.grid-8 > * {
+  --flex-grid: 8;
+}
+.tg-flex .col-8 {
+  --flex-col: 8;
+}
+.tg-flex.grid-9 > * {
+  --flex-grid: 9;
+}
+.tg-flex .col-9 {
+  --flex-col: 9;
+}
+.tg-flex.grid-10 > * {
+  --flex-grid: 10;
+}
+.tg-flex .col-10 {
+  --flex-col: 10;
+}
+.tg-flex.grid-11 > * {
+  --flex-grid: 11;
+}
+.tg-flex .col-11 {
+  --flex-col: 11;
+}
+.tg-flex.grid-12 > * {
+  --flex-grid: 12;
+}
+.tg-flex .col-12 {
+  --flex-col: 12;
 }
 
-.App-logo {
-  max-height: 30vh;
-  max-width: 30vh;
+.tg-flex-separator {
+  width: 15px;
+  min-width: 15px;
+  max-width: 15px;
 }
 
-.App-instructions {
-  background-color: #fff;
-  color: #000;
-  font-size: 3vh;
-  line-height: 1.5;
-  padding: 0 1em;
+.record-container {
+  padding: 20px;
 }
 
-.App-instructions code {
-  background-color: #343a47;
-  color: #f2777a;
-  padding: .2em .3em;
-  border-radius: .2em;
+.record-container-with-cards {
+  padding: 10px 10px 0 10px;
+}
+
+.j5-report-container {
+  width: 1170px !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  padding: 25px;
+  height: 100%;
+}
+
+.abstract-library-card-container {
+  width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.settings-container {
+  width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bold-light {
+  font-weight: 500;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.header-margin {
+  margin-bottom: 10px;
+}
+
+.upload-field-in-dialog {
+  padding: 30px 30px 0 30px;
+}
+
+.pt-dialog {
+  padding-bottom: 12px;
+}
+
+.pt-dialog .ReactTable {
+  max-height: 400px !important;
+}
+
+/* fix focus on inputs in datatables */
+.rt-tr-group .pt-input-group {
+  padding: 3px;
+}
+
+.rt-td > div {
+  flex: 1;
+}
+
+/* make toasts appear above modals */
+.pt-toast-container {
+  z-index: 40001 !important;
+}
+
+.above-dialog {
+  z-index: 40001;
+}
+
+.tg-section-break {
+  margin: 25px 0;
+  border-bottom: 1px #e1e4e8 solid;
+}
+
+.fullscreen {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  padding: 10px;
+  top: 0px;
+  z-index: 2000;
+  background: white;
+}
+
+.ve-close-panel-button {
+  z-index: auto;
+}
+
+.preserve-newline {
+  white-space: pre-line;
+}
+
+.pt-dialog-header .pt-icon {
+  color: white;
 }
