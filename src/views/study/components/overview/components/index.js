@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import Accordion from "../../accordion";
+import Accordion from '../../../../../components/Accordion/index.js'
 import Permissions from "./permissions/index";
-import Attachments from "./attachments";
-import Comments from "./comments";
+import Attachments from "./attachements/index";
+import Comments from "./comments/index";
 import BasicInformation from "./information";
 const data = {
   study : {
@@ -24,15 +24,30 @@ const data = {
     }
   }
 }
-
+const values = {
+  studyName: data.study.object_ref.name,
+  studyDescription: data.study.object_ref.description,
+  studyCollaborators: [data.study.contact_id]
+};
 class overview extends Component {
   render(){
+    let elements = [
+      { title:"Study Information",   
+        content:< BasicInformation study={ data } initialValues={ values } history={ this.props.history } id={ data.study.id } />
+      },
+      { title:"Permissions",
+        content:<Permissions />
+      },
+      { title:'Attachments',
+        content:<Attachments id={data.study.id} />
+      },
+      { title:"Comments",
+        content:<Comments id={data.study.id}/>
+      }
+    ]
     return (
       <div>
-        <Accordion title="Study Information" content={<BasicInformation study={data} history={this.props.history} id={data.study.id} />} />
-        <Accordion title="Permissions" content={<Permissions />} />
-        <Accordion title="Attachments" content={<Attachments id={data.study.id} />} />
-        <Accordion title="Comments" content={<Comments id={data.study.id} />} />
+        <Accordion elements={elements} />
       </div>);
   }
 }

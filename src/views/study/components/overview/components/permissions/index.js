@@ -8,9 +8,7 @@ import {
 } from "teselagen-react-components";
 import { Button, Intent, Classes } from "@blueprintjs/core";
 
-const users = [
-{id: "1", name: "Test User", },{id: "0", name: "Admin"}
-]
+const users = [{ id: "1", name: "Test User" }, { id: "0", name: "Admin" }];
 
 class permissions extends Component {
   constructor(props) {
@@ -20,26 +18,27 @@ class permissions extends Component {
 
   render() {
     return (
-      <div className="col-md-10 col-md-offset-1">
-        <form>
-          {
-            users.map((user)=>(
-              <ReactSelectField
-                key={user.id}
-                name={user.id+'Permission'}
-                inlineLabel
-                label={user.name}
-                options={[
-                  { label: "Root Access", value: "root" },
-                  { label: "View Access", value: "view" },
-                  { label: "Write Access", value: "write" }
-                ]}
-              />
-            ))
-          }
-          <Button icon="cog" text="Configure Permissions" intent={Intent.PRIMARY} className={Classes.MINIMAL} />
-        </form>
-      </div>
+      <form>
+        {users.map(user => (
+          <ReactSelectField
+            key={user.id}
+            name={user.id + "Permission"}
+            inlineLabel
+            label={user.name}
+            options={[
+              { label: "Root Access", value: "root" },
+              { label: "View Access", value: "view" },
+              { label: "Write Access", value: "write" }
+            ]}
+          />
+        ))}
+        <Button
+          icon="cog"
+          text="Configure Permissions"
+          intent={Intent.PRIMARY}
+          className={Classes.MINIMAL}
+        />
+      </form>
     );
   }
 }

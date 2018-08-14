@@ -29,26 +29,7 @@ class studyPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: null,
-      study: null,
-      history: null,
-      tabs: null
     };
-  }
-
-  componentWillMount() {
-    this.setState({
-      selectedTab: this.props.match.params.tab || "overview",
-      study: study.object_ref,
-      history: this.props.history
-    });
-  }
-
-  componentDidMount() {
-    let tabs = this.renderTabs();
-    this.setState({
-      tabs
-    });
   }
 
   renderTabs = () => {
@@ -80,16 +61,17 @@ class studyPage extends Component {
   );
 
   renderContent(key) {
+    const { history } = this.props;
     switch (key) {
       case "data": {
         return <Data />;
       }
       case "experiment": {
-        return <Experiment study={this.state.study} />;
+        return <Experiment study={study} />;
       }
       default: {
         return (
-          <Overview study={this.state.study} history={this.state.history} />
+          <Overview study={study} history={history} />
         );
       }
     }
@@ -98,20 +80,16 @@ class studyPage extends Component {
   changeTab(e) {
     if (e !== this.state.selectedTab) {
       this.props.history.replace(e);
-      this.setState({
-        selectedTab: e
-      });
     }
   }
 
   render() {
-    const { history } = this.props;
+    const { history, match: { params } } = this.props;
     return (
       <div>
         <Helmet title={'My Study'} />
         <div className="header" style={{ marginTop: "20px" }}>
           <h2>{'My Study'}</h2>
-          {/* <i style={ { left: "0", right: "0", margin: "auto", color: "#111111" } }>{ this.props.eddObject.description }</i> */}
         </div>          
         <Button style={{ float: "right" }} icon="import" onClick={()=> history.push('/study/6/import-data')} text="Import Data" className={Classes.MINIMAL} intent={Intent.PRIMARY} />
         <div className="tool-library-container">
@@ -120,10 +98,10 @@ class studyPage extends Component {
               id="toolsLibrary"
               vertical
               onChange={this.changeTab.bind(this)}
-              selectedTab={this.state.selectedTab}
-              selectedTabId={this.state.selectedTab}
+              selectedTab={params.tab}
+              selectedTabId={params.tab}
             >
-              {this.state.tabs}
+              {this.renderTabs()}
             </Tabs>
           </div>
         </div>

@@ -33,11 +33,13 @@ export default class StudiesPage extends Component {
           </div>
         </div>
         <DataTable
+          formName='studiesTable'
           doNotShowEmptyRows
           withSort
           isSingleSelect
           withSearch
           withPaging
+          isCopyable={false}
           onDoubleClick={this.openStudy.bind(this)}
           {...tableParams}
           contextMenu={StudyContextMenu.bind(this, this.props)}

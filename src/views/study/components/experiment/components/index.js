@@ -116,6 +116,7 @@ export default class experimentDescription extends Component {
           </div>
           <DataTable
             doNotShowEmptyRows
+            formName='LineTable'
             withSort
             withSearch
             withPaging

@@ -38,7 +38,7 @@ const entities = [
 ];
 const overview = props => {
   return <div className="col-md-12 row">
-      <DataTable isSimple entities={entities} schema={schema} formName="dataform" withPaging withCheckboxes>
+    <DataTable isSimple entities={entities} schema={schema} formName="overViewTable" withPaging withCheckboxes>
         <div className="pt-select pt-minimal">
           <select>
             <option defaultValue>View options</option>

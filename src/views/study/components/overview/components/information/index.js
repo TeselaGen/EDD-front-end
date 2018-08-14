@@ -15,31 +15,27 @@ class information extends Component {
 
   render() {
     return (
-      <div className="col-md-10 col-md-offset-1">
-        <form>
-          <InputField name={"studyName"} inlineLabel label="Study Name" />
-          <TextareaField
-            name={"studyDescription"}
-            inlineLabel
-            label="Description"
-          />
-          <ReactSelectField
-            name="studyCollaborators"
-            inlineLabel
-            label="Collaborators"
-            options={[
-              {
-                label: "Rodrigo Pavez",
-                value: { name: "Rodrigo Pavez", id: "123" }
-              },
-              { label: "Ximena Morales", value: "Ximena Morales" },
-              { label: "Kyle Craft", value: "Kyle Craft" },
-              { label: "Sam Denicola", value: "Sam Denicola" },
-              { label: "Tom Ogasawara", value: "Tom Ogasawara" }
-            ]}
-          />
-        </form>
-      </div>
+      <form>
+        <InputField name={"studyName"} inlineLabel label="Study Name" />
+        <TextareaField
+          name={"studyDescription"}
+          inlineLabel
+          label="Description"
+        />
+        <ReactSelectField
+          name="studyCollaborators"
+          inlineLabel
+          label="Collaborators"
+          multi
+          options={[
+            { label: "Rodrigo Pavez", value: "1" },
+            { label: "Ximena Morales", value: "Ximena Morales" },
+            { label: "Kyle Craft", value: "Kyle Craft" },
+            { label: "Sam Denicola", value: "Sam Denicola" },
+            { label: "Tom Ogasawara", value: "Tom Ogasawara" }
+          ]}
+        />
+      </form>
     );
   }
 }
