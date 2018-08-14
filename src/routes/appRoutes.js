@@ -6,7 +6,7 @@ import DashboardPage from "../views/dashboardPage";
 import Studies from '../views/studies'
 import Study from '../views/study'
 import ImportData from '../views/importData'
-
+import SiteAdministration from '../views/siteAdministration'
 
 
 export const privateRoutes = {
@@ -15,6 +15,7 @@ export const privateRoutes = {
   '/studies': Studies,
   '/study/:id/import-data': ImportData,
   '/study/:id/:tab': Study,
+  '/settings':SiteAdministration
 };
 
 export const publicRoutes = {

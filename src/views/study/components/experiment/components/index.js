@@ -142,7 +142,7 @@ export default class experimentDescription extends Component {
           <div className="col-md-6" />
           <div className="col-md-2 col-md-offset-3">
             <ButtonGroup large={false}>
-              <Button text="Generate Worklist" intent={Intent.PRIMARY} />
+              <Button text="Generate Worklist" intent={Intent.PRIMARY} />&emsp;
               <Button text="Export Data" intent={Intent.PRIMARY} />
             </ButtonGroup>
           </div>
