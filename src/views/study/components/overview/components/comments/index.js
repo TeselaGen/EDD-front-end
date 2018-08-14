@@ -47,14 +47,15 @@ class comments extends Component {
           value={this.state.text}
           placeholder="write a new comment"
         />
-        <Button
-          icon="add"
-          text="Add Comment"
-          intent={Intent.PRIMARY}
-          className={Classes.MINIMAL}
-          style={{ marginTop: "5px" }}
-          onClick={() => this.createCommnet()}
-        />
+        <div className="pt-dialog-footer-actions">
+          <Button
+            icon="add"
+            text="Add Comment"
+            intent={Intent.PRIMARY}
+            style={{ float: "right", marginTop: '15px', }}
+            onClick={() => this.createCommnet()}
+          />
+        </div>
       </form>
     );
   }

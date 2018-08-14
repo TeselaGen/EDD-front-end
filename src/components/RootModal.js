@@ -6,10 +6,11 @@ import actions from "../redux/actions";
 
 // import DemoReactComponentMoldal from './someRoute'
 import newStudy from './Dialogs/NEW_STUDY'
-
+import addAttachment from './Dialogs/ADD_ATTACHMENT'
 const MODAL_COMPONENTS = {
   //DEMO_MODAL : DemoReactComponentModal
-  NEW_STUDY: newStudy
+  NEW_STUDY: newStudy,
+  ADD_ATTACHMENT: addAttachment
 };
 
 const RootModal = ({

@@ -38,6 +38,12 @@ class permissions extends Component {
           intent={Intent.PRIMARY}
           className={Classes.MINIMAL}
         />
+        <Button
+          icon="save"
+          text="Save Permissions"
+          intent={Intent.SUCCESS}
+          style={{float: 'right'}}
+        />
       </form>
     );
   }

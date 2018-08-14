@@ -6,6 +6,7 @@ import {
   TextareaField,
   ReactSelectField
 } from "teselagen-react-components";
+import { Intent, Button, Classes } from "@blueprintjs/core";
 
 class information extends Component {
   constructor(props) {
@@ -35,6 +36,17 @@ class information extends Component {
             { label: "Tom Ogasawara", value: "Tom Ogasawara" }
           ]}
         />
+        <div className="pt-dialog-footer-actions">
+          <Button
+            icon="save"
+            text="Save"
+            intent={Intent.SUCCESS}
+            style={{ float: "right", marginBottom: "15px" }}
+            onClick={() => {
+              console.log("saving data");
+            }}
+          />
+        </div>
       </form>
     );
   }
