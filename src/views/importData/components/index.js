@@ -19,11 +19,11 @@ const steps = [
     Component: <h2>upload body</h2>
   },
   {
-    title: "Resolve",
+    title: "Interpret",
     Component: <h2>resolve body</h2>
   },
   {
-    title: "Inspect",
+    title: "Review",
     Component: <h2>inspect body</h2>
   },
   {
@@ -102,15 +102,12 @@ class StepForm extends Component {
         </ul>
         {page === 0 && <Identify onSubmit={() => setpage(1)} />}
         {page === 1 && <Upload onSubmit={() => setpage(2)} />}
-        {page === 2 && <Resolve onSubmit={() => setpage(3)} />}
+        {page === 2 && <di>Table</di>}
       </div>
     );
   }
 }
 
-StepForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-};
 
 const mapDispatchToProps = {
   setpage: actions.step.setpage

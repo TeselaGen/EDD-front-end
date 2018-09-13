@@ -3,7 +3,6 @@ import { PlatformHeader } from "teselagen-platform-ux";
 import "./style.css";
 
 const topMenu = [
-  { name: "Dashboard", navTo: "/dashboard", icon: "layers" },
   { name: "Studies", navTo: "/studies", icon: "layers" },
   // { name: "Assays Requests", navTo: "/assaysreq", icon: "layers" },
   // { name: "Pending Results", navTo: "/pendingsres", icon: "layers" }
